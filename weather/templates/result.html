@@ -4,20 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <title>{{city}} Weather</title>
-    <link href="{% static 'css/style2.css' %}" rel="stylesheet">
+    <link href="{% static 'css\style2.css' %}" rel="stylesheet">
 </head>
 <body>
     <body>
         <div>
-            <body style='background-image: url({{}});'>
-                <form action="fetchweather">
-                  <h1>Weather of {{city}}</h1>
-                  <div class="formcontainer">
-                  <hr/>
-                  <div class="container">
-
-                  </div>
-                </form>
+            <body>
+                <div class="box">
+                    <h1 style="color: blueviolet; font-size:larger">Weather of {{city}},{{country}}</h1>
+                    <div class="formcontainer">
+                    <hr/>
+                    {% if request %}
+                        <div class="container">
+                            <h1>Temperature: {{temp}}&deg;F</h1>
+                            <h1>Pressure:  {{pre}}hPa</h1>
+                            <h1>Humidity  {{hum}}</h1>
+                            <h1>Description:  {{des}}</h1>
+                        </div>
+                    {% else %}
+                        <div class="container">
+                            <h1>Error city not found</h1>
+                            <form action=""><button>Back to home</button></form>
+                        </div>
+                    {% endif %}
+                    </div>
         </div>
     </body>
 </html>
