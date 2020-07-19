@@ -1,3 +1,5 @@
-pip install django
-pip install requests
-pip install json
+django
+gunicorn
+django-heroku
+requests
+json
